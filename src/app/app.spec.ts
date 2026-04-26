@@ -14,10 +14,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render shop layout', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ecommerce-app');
+    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('ShopStore');
+    expect(compiled.querySelector('#products h2')?.textContent).toContain('Products');
   });
 });

@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/* App shell — Bootstrap handles most layout */
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
