@@ -1,0 +1,166 @@
+.hero-carousel {
+  --hero-max-h: min(88vh, 760px);
+  --hero-min-h: 320px;
+}
+
+.hero-slide-frame {
+  position: relative;
+  min-height: var(--hero-min-h);
+  max-height: var(--hero-max-h);
+}
+
+.hero-img {
+  width: 100%;
+  height: var(--hero-max-h);
+  min-height: var(--hero-min-h);
+  max-height: var(--hero-max-h);
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(15, 23, 42, 0.82) 0%,
+    rgba(15, 23, 42, 0.45) 42%,
+    rgba(15, 23, 42, 0.25) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 6% 3.5rem;
+  max-width: 640px;
+  margin-right: auto;
+  margin-left: 0;
+  text-align: start !important;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.hero-title {
+  font-size: clamp(1.85rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hero-lead {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 0;
+  max-width: 32ch;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+}
+
+.hero-cta {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta--primary:hover {
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.25);
+}
+
+/* Indicators — pill track */
+.hero-indicators {
+  margin-bottom: 1.25rem;
+  gap: 0.35rem;
+}
+
+.hero-indicators [data-bs-target] {
+  width: 2.25rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  border: none;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.35);
+  opacity: 1;
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.hero-indicators [data-bs-target].active {
+  width: 2.75rem;
+  background-color: #fff;
+}
+
+.hero-indicators [data-bs-target]:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Controls */
+.hero-control {
+  width: 3.25rem;
+  opacity: 1;
+}
+
+.hero-control .carousel-control-prev-icon,
+.hero-control .carousel-control-next-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-size: 45% 45%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hero-control:hover .carousel-control-prev-icon,
+.hero-control:hover .carousel-control-next-icon {
+  background-color: rgba(255, 255, 255, 0.28);
+  transform: scale(1.05);
+}
+
+@media (max-width: 767.98px) {
+  .hero-carousel {
+    --hero-max-h: min(70vh, 520px);
+  }
+
+  .hero-caption {
+    padding: 1.75rem 1.25rem 2.75rem;
+  }
+
+  .hero-control {
+    width: 2.5rem;
+  }
+
+  .hero-control .carousel-control-prev-icon,
+  .hero-control .carousel-control-next-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}

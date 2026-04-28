@@ -1,32 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Product } from '../../models/product';
 import { Highlight } from '../../directives/highlight.directive';
 import { ScaleElement } from '../../directives/scale-element.directive';
-import { ShortenDescPipe } from '../../pipes/shorten-desc-pipe';
+import { Product } from '../../models/product';
 import { StarPipe } from '../../pipes/star-pipe';
 
 @Component({
-  selector: 'app-products',
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterLink,
-    ShortenDescPipe,
-    StarPipe,
-    Highlight,
-    ScaleElement,
-  ],
-  templateUrl: './products.html',
-  styleUrl: './products.css',
+  selector: 'app-product-details',
+  imports: [CommonModule, RouterLink, StarPipe, Highlight, ScaleElement],
+  templateUrl: './product-details.html',
+  styleUrl: './product-details.css',
 })
-export class Products {
-  private readonly route = inject(ActivatedRoute);
-
-  selectedCategory: string = 'all';
-
+export class ProductDetails {
   products: Product[] = [
     {
       id: 1,
@@ -78,13 +64,13 @@ export class Products {
     },
   ];
 
-  filteredArray = signal<Product[]>(this.products);
-  filter() {
-    if (this.selectedCategory == 'all') {
-      this.filteredArray.set(this.products);
-    } else {
-      this.filteredArray.set(this.products.filter((p) => p.category == this.selectedCategory));
-    }
+  id: string | null = '';
+  product: any;
+  constructor(private route: ActivatedRoute) {
+    this.route.paramMap.subscribe((params) => {
+      this.id = params.get('id');
+      this.product = this.products.find((p) => p.id == Number(this.id));
+    });
   }
 
   addToCart(name: string) {

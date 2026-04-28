@@ -1,0 +1,72 @@
+<div class="product-details-page pb-5">
+  <div class="container py-4">
+    <p class="mb-4">
+      <a routerLink="/products" class="btn btn-back rounded-pill d-inline-flex align-items-center gap-2">
+        <i class="bi bi-arrow-left" aria-hidden="true"></i>
+        <span>Back</span>
+      </a>
+    </p>
+
+      <article class="card product-detail-card border-0 shadow-sm overflow-hidden">
+        <div class="row g-0">
+          <div class="col-lg-6 product-detail-gallery">
+            <div class="position-relative h-100 d-flex align-items-center justify-content-center p-4 p-xl-5">
+              <img
+                appScaleElement
+                class="img-fluid product-detail-img rounded-3 shadow-sm"
+                [src]="'/' + product.image"
+                [alt]="product.name"
+              />
+              <span
+                class="badge category-pill rounded-pill text-uppercase small position-absolute top-0 start-0 m-3"
+              >
+                {{ product.category }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="product-detail-body h-100 d-flex flex-column p-4 p-xl-5">
+              <h1 appHighlight class="h2 fw-bold mb-3 text-body">{{ product.name }}</h1>
+
+              <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                <span class="badge rounded-pill rating-pill">
+                  {{ product.rating | star: 5 }} / 5
+                </span>
+                <span
+                  class="badge rounded-pill"
+                  [class]="product.inStock ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'"
+                >
+                  {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+                </span>
+              </div>
+
+              <p class="display-6 fw-semibold text-primary mb-3">${{ product.price }}</p>
+
+              <p class="text-muted mb-3 small mb-lg-4">
+                <span class="fw-semibold text-body">{{ product.quantity }}</span>
+                units available
+              </p>
+
+              <p class="text-muted product-detail-desc flex-grow-1 mb-4">{{ product.description }}</p>
+
+              <div class="d-flex flex-wrap gap-2 pt-2 border-top">
+                <button
+                  type="button"
+                  class="btn btn-primary rounded-pill px-4 fw-semibold"
+                  [disabled]="!product.inStock"
+                  (click)="addToCart(product.name)"
+                >
+                  Add to Cart
+                </button>
+                <button type="button" class="btn btn-outline-secondary rounded-pill px-4 fw-semibold">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+  </div>
+</div>

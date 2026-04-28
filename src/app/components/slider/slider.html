@@ -1,15 +1,16 @@
 <div
   id="heroCarousel"
-  class="carousel slide carousel-fade"
+  class="carousel slide carousel-fade hero-carousel"
   data-bs-ride="carousel"
-  data-bs-interval="5000"
+  data-bs-interval="5500"
+  data-bs-pause="hover"
 >
-  <div class="carousel-indicators bottom-0 mb-3">
+  <div class="carousel-indicators hero-indicators">
     <button
       type="button"
       data-bs-target="#heroCarousel"
       data-bs-slide-to="0"
-      class="active rounded-pill"
+      class="active"
       aria-current="true"
       aria-label="Slide 1"
     ></button>
@@ -17,69 +18,102 @@
       type="button"
       data-bs-target="#heroCarousel"
       data-bs-slide-to="1"
-      class="rounded-pill"
       aria-label="Slide 2"
     ></button>
     <button
       type="button"
       data-bs-target="#heroCarousel"
       data-bs-slide-to="2"
-      class="rounded-pill"
       aria-label="Slide 3"
     ></button>
   </div>
+
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div class="ratio ratio-21x9 bg-body-secondary">
+      <div class="hero-slide-frame">
         <img
-          src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&h=680&fit=crop"
-          class="d-block w-100 h-100 object-fit-cover"
-          alt="Shopping bags and sale"
+          src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&q=80"
+          class="d-block w-100 hero-img"
+          alt="Seasonal sale collection"
         />
-      </div>
-      <div class="carousel-caption start-0 end-0 bottom-0 p-3 p-md-4 text-center d-flex flex-column align-items-center justify-content-end">
-        <div class="d-inline-block rounded-3 bg-dark bg-opacity-50 text-white px-3 py-2 py-md-3 px-md-4 mb-2 mb-md-3">
-          <h2 class="mb-0 fw-medium fs-5 fs-md-4">Special offers</h2>
-          <p class="d-none d-md-block small text-white-50 mb-0 mt-1">Deals you do not want to miss</p>
+        <div class="hero-overlay"></div>
+        <div class="carousel-caption hero-caption text-start">
+          <span class="hero-eyebrow">Limited time</span>
+          <h1 class="hero-title">Big sale — up to 50% off</h1>
+          <p class="hero-lead">Upgrade your look with this season’s standout pieces.</p>
+          <div class="d-flex flex-wrap gap-2 gap-md-3 mt-3">
+            <a
+              routerLink="/"
+              fragment="products"
+              class="btn btn-light btn-lg rounded-pill px-4 hero-cta hero-cta--primary"
+            >
+              <i class="bi bi-bag-check me-2" aria-hidden="true"></i>
+              Shop now
+            </a>
+            <a
+              routerLink="/"
+              [queryParams]="{ category: 'sport' }"
+              fragment="products"
+              class="btn btn-outline-light btn-lg rounded-pill px-4 hero-cta"
+            >
+              Sport picks
+            </a>
+          </div>
         </div>
-        <a class="btn btn-primary btn-sm mb-0" href="#products">Shop now</a>
       </div>
     </div>
+
     <div class="carousel-item">
-      <div class="ratio ratio-21x9 bg-body-secondary">
+      <div class="hero-slide-frame">
         <img
-          src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&h=680&fit=crop"
-          class="d-block w-100 h-100 object-fit-cover"
-          alt="Clothing store interior"
+          src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80"
+          class="d-block w-100 hero-img"
+          alt="New arrivals in store"
         />
-      </div>
-      <div class="carousel-caption start-0 end-0 bottom-0 p-3 p-md-4 text-center d-flex flex-column align-items-center justify-content-end">
-        <div class="d-inline-block rounded-3 bg-dark bg-opacity-50 text-white px-3 py-2 py-md-3 px-md-4 mb-2 mb-md-3">
-          <h2 class="mb-0 fw-medium fs-5 fs-md-4">New collection</h2>
-          <p class="d-none d-md-block small text-white-50 mb-0 mt-1">Fresh styles for the season</p>
+        <div class="hero-overlay"></div>
+        <div class="carousel-caption hero-caption text-start">
+          <span class="hero-eyebrow">Just dropped</span>
+          <h1 class="hero-title">New arrivals</h1>
+          <p class="hero-lead">Fresh styles and trending watches, curated for you.</p>
+          <a
+            routerLink="/"
+            fragment="products"
+            class="btn btn-primary btn-lg rounded-pill px-4 hero-cta mt-3"
+          >
+            <i class="bi bi-arrow-right-circle me-2" aria-hidden="true"></i>
+            Explore
+          </a>
         </div>
-        <a class="btn btn-primary btn-sm mb-0" href="#products">Shop now</a>
       </div>
     </div>
+
     <div class="carousel-item">
-      <div class="ratio ratio-21x9 bg-body-secondary">
+      <div class="hero-slide-frame">
         <img
-          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1600&h=680&fit=crop"
-          class="d-block w-100 h-100 object-fit-cover"
-          alt="Watches and accessories"
+          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1600&q=80"
+          class="d-block w-100 hero-img"
+          alt="Premium watches"
         />
-      </div>
-      <div class="carousel-caption start-0 end-0 bottom-0 p-3 p-md-4 text-center d-flex flex-column align-items-center justify-content-end">
-        <div class="d-inline-block rounded-3 bg-dark bg-opacity-50 text-white px-3 py-2 py-md-3 px-md-4 mb-2 mb-md-3">
-          <h2 class="mb-0 fw-medium fs-5 fs-md-4">Top picks</h2>
-          <p class="d-none d-md-block small text-white-50 mb-0 mt-1">Hand‑picked for your cart</p>
+        <div class="hero-overlay"></div>
+        <div class="carousel-caption hero-caption text-start">
+          <span class="hero-eyebrow">Crafted detail</span>
+          <h1 class="hero-title">Premium watches</h1>
+          <p class="hero-lead">Luxury feel with everyday reliability.</p>
+          <a
+            routerLink="/"
+            [queryParams]="{ category: 'luxury' }"
+            fragment="products"
+            class="btn btn-warning btn-lg rounded-pill px-4 text-dark fw-semibold hero-cta mt-3"
+          >
+            Shop luxury
+          </a>
         </div>
-        <a class="btn btn-primary btn-sm mb-0" href="#products">Shop now</a>
       </div>
     </div>
   </div>
+
   <button
-    class="carousel-control-prev w-auto"
+    class="carousel-control-prev hero-control"
     type="button"
     data-bs-target="#heroCarousel"
     data-bs-slide="prev"
@@ -87,8 +121,9 @@
   >
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
   </button>
+
   <button
-    class="carousel-control-next w-auto"
+    class="carousel-control-next hero-control"
     type="button"
     data-bs-target="#heroCarousel"
     data-bs-slide="next"

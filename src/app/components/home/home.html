@@ -1,0 +1,147 @@
+<app-slider />
+
+<!-- 3. Categories Section -->
+<section class="categories-section py-5 border-bottom" aria-labelledby="categories-heading">
+  <div class="container">
+    <div class="row align-items-end g-4 mb-4 mb-lg-5">
+      <div class="col-lg-8 text-center text-lg-start">
+        <p class="categories-kicker text-uppercase small fw-semibold mb-2">Shop by style</p>
+        <h2 id="categories-heading" class="categories-title fw-bold mb-2">Categories</h2>
+        <p class="categories-sub text-secondary mb-0 mx-auto mx-lg-0">
+          Choose a collection — we’ll filter the catalog so you land on the right watches faster.
+        </p>
+      </div>
+      <div class="col-lg-4 text-center text-lg-end">
+        <a
+          routerLink="/"
+          fragment="products"
+          class="btn btn-dark rounded-pill px-4 categories-all-btn"
+        >
+          View all products
+          <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <a routerLink="/products" class="category-tile-link d-block h-100 text-decoration-none">
+          <article class="category-tile category-tile--sport h-100">
+            <div class="category-tile__media">
+              <img src="sportWatch.jpg" alt="Sport watches" />
+              <div class="category-tile__shade" aria-hidden="true"></div>
+              <div class="category-tile__top">
+                <span class="category-tile__tag">Movement</span>
+              </div>
+              <div class="category-tile__caption">
+                <h3 class="category-tile__name mb-0">Sport</h3>
+                <span class="category-tile__go" aria-hidden="true">
+                  <i class="bi bi-arrow-up-right"></i>
+                </span>
+              </div>
+            </div>
+            <div class="category-tile__foot">
+              <p class="category-tile__blurb small text-secondary mb-0">
+                Built for training, travel, and everyday wear.
+              </p>
+            </div>
+          </article>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a routerLink="/products" class="category-tile-link d-block h-100 text-decoration-none">
+          <article class="category-tile category-tile--classic h-100">
+            <div class="category-tile__media">
+              <img src="classicWatch.avif" alt="Classic watches" />
+              <div class="category-tile__shade" aria-hidden="true"></div>
+              <div class="category-tile__top">
+                <span class="category-tile__tag">Everyday</span>
+              </div>
+              <div class="category-tile__caption">
+                <h3 class="category-tile__name mb-0">Classic</h3>
+                <span class="category-tile__go" aria-hidden="true">
+                  <i class="bi bi-arrow-up-right"></i>
+                </span>
+              </div>
+            </div>
+            <div class="category-tile__foot">
+              <p class="category-tile__blurb small text-secondary mb-0">
+                Clean lines that never go out of style.
+              </p>
+            </div>
+          </article>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a routerLink="/products" class="category-tile-link d-block h-100 text-decoration-none">
+          <article class="category-tile category-tile--luxury h-100">
+            <div class="category-tile__media">
+              <img src="LuxuryWatch.webp" alt="Luxury watches" />
+              <div class="category-tile__shade" aria-hidden="true"></div>
+              <div class="category-tile__top">
+                <span class="category-tile__tag">Statement</span>
+              </div>
+              <div class="category-tile__caption">
+                <h3 class="category-tile__name mb-0">Luxury</h3>
+                <span class="category-tile__go" aria-hidden="true">
+                  <i class="bi bi-arrow-up-right"></i>
+                </span>
+              </div>
+            </div>
+            <div class="category-tile__foot">
+              <p class="category-tile__blurb small text-secondary mb-0">
+                Premium finishes and standout presence.
+              </p>
+            </div>
+          </article>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Promo Section (Banner) -->
+<section class="py-5" aria-labelledby="promo-heading">
+  <div class="container">
+    <div class="rounded-4 text-white overflow-hidden shadow-lg promo-banner position-relative">
+      <div class="row g-0 align-items-stretch">
+        <div
+          class="col-lg-7 p-4 p-md-5 d-flex flex-column justify-content-center promo-banner__copy"
+        >
+          <p class="text-uppercase small fw-semibold mb-2 opacity-90">💎 Limited offer</p>
+          <h2 id="promo-heading" class="display-6 fw-bold mb-3">
+            Spring refresh: up to 30% off select watches
+          </h2>
+          <p class="mb-4 opacity-90 pe-lg-4">
+            Stack the carousel deals with member pricing. Ends soon — shop the edit before sizes run
+            low.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              routerLink="/"
+              fragment="products"
+              class="btn btn-light btn-lg rounded-pill px-4 fw-semibold"
+            >
+              Shop the sale
+            </a>
+            <a routerLink="/products" class="btn btn-outline-light btn-lg rounded-pill px-4">
+              Luxury picks
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block promo-banner__visual">
+          <div class="h-100 ratio ratio-1x1">
+            <img
+              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800"
+              class="object-fit-cover w-100 h-100"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

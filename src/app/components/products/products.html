@@ -1,72 +1,91 @@
-<section id="products" class="py-5 bg-light">
+<section id="products" class="py-5">
   <div class="container">
-    <h2 class="h3 text-center fw-semibold text-dark mb-2">Products</h2>
-    <p class="text-center text-secondary small mb-4 mb-md-5">Hand-picked for your cart</p>
+    <!-- Title -->
+    <h2 class="text-center fw-semibold mb-3">Products</h2>
+
+    <!-- Category Filter -->
+    <div class="d-flex justify-content-center mb-4">
+      <select
+        class="form-select w-auto rounded-pill px-4 shadow-sm border-0"
+        [(ngModel)]="selectedCategory"
+        (change)="filter()"
+      >
+        <option selected value="all">All Categories</option>
+        <option value="sport">Sport</option>
+        <option value="classic">Classic</option>
+        <option value="luxury">Luxury</option>
+      </select>
+    </div>
+
     <div class="row g-4">
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-          <div class="ratio ratio-4x3 bg-body-secondary">
-            <img
-              src="/headphone.jpg"
-              class="w-100 h-100 object-fit-cover"
-              alt="Wireless headphones"
-            />
-          </div>
-          <div class="card-body d-flex flex-column text-center pt-4 pb-3 px-3">
-            <h3 class="card-title h6 text-body mb-2">Wireless Headphones</h3>
-            <p class="card-text fs-5 fw-bold text-primary mb-3">$79.99</p>
-            <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill mt-auto">Add to Cart</button>
+      @for (product of filteredArray(); track $index) {
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100 product-card shadow-sm">
+            <div class="card-img-wrap">
+              <img
+                appScaleElement
+                [src]="product.image"
+                class="card-img-top"
+                alt="{{ product.name }}"
+                style="height: 180px; object-fit: cover"
+              />
+            </div>
+
+            <div class="card-body product-body text-center d-flex flex-column">
+              <span class="badge px-3 py-2 rounded-pill fw-medium text-dark bg-light border align-self-center">
+                {{ product.category }}
+              </span>
+
+              <h5 appHighlight class="card-title mb-2 mt-2">{{ product.name }}</h5>
+
+              <p class="product-desc text-muted small text-start px-1 mb-2">{{ product.description  | shortenDesc :10 }}</p>
+
+              <p class="small text-secondary mb-2">
+                Qty:
+                <span class="fw-semibold text-body">{{ product.quantity }}</span>
+              </p>
+
+              <div class="product-rating small fw-semibold rounded-pill py-1 px-3 align-self-center mb-2">
+                {{ product.rating | star: 5 }}
+              </div>
+
+              <p class="fw-bold rounded-pill mb-2" [class]=" product.price <= 100
+                    ? 'bg-success-subtle text-success'
+                    : 'bg-danger-subtle text-danger' ">
+                ${{ product.price }}
+              </p>
+
+              <span
+                class="badge px-3 py-2 rounded-pill fw-medium mb-3"
+                [class]="
+                  product.inStock
+                    ? 'bg-success-subtle text-success'
+                    : 'bg-danger-subtle text-danger'
+                "
+              >
+                {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+              </span>
+
+              <div class="d-flex flex-column flex-sm-row product-actions mt-auto">
+                <button
+                  type="button"
+                  class="btn btn-primary flex-grow-1"
+                  (click)="addToCart(product.name)"
+                  [disabled]="!product.inStock"
+                >
+                  Add to Cart
+                </button>
+                <a
+                  class="btn btn-outline-secondary flex-grow-1"
+                  [routerLink]="['/products', product.id]"
+                >
+                  Show details
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-          <div class="ratio ratio-4x3 bg-body-secondary">
-            <img
-              src="/watch.jpg"
-              class="w-100 h-100 object-fit-cover"
-              alt="Classic watch"
-            />
-          </div>
-          <div class="card-body d-flex flex-column text-center pt-4 pb-3 px-3">
-            <h3 class="card-title h6 text-body mb-2">Classic Watch</h3>
-            <p class="card-text fs-5 fw-bold text-primary mb-3">$189.00</p>
-            <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill mt-auto">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-          <div class="ratio ratio-4x3 bg-body-secondary">
-            <img
-              src="/latherBag.jpg"
-              class="w-100 h-100 object-fit-cover"
-              alt="Leather tote bag"
-            />
-          </div>
-          <div class="card-body d-flex flex-column text-center pt-4 pb-3 px-3">
-            <h3 class="card-title h6 text-body mb-2">Leather Tote</h3>
-            <p class="card-text fs-5 fw-bold text-primary mb-3">$64.50</p>
-            <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill mt-auto">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-          <div class="ratio ratio-4x3 bg-body-secondary">
-            <img
-              src="/Sneakers.avif"
-              class="w-100 h-100 object-fit-cover"
-              alt="Running sneakers"
-            />
-          </div>
-          <div class="card-body d-flex flex-column text-center pt-4 pb-3 px-3">
-            <h3 class="card-title h6 text-body mb-2">Running Sneakers</h3>
-            <p class="card-text fs-5 fw-bold text-primary mb-3">$112.00</p>
-            <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill mt-auto">Add to Cart</button>
-          </div>
-        </div>
-      </div>
+      }
     </div>
   </div>
 </section>
